@@ -5,5 +5,6 @@ FactoryBot.define do
     password { Faker::Internet.password }
     job { Faker::Job.title }
     phone { Faker::PhoneNumber.cell_phone }
+    team { create(:team) }
   end
 end

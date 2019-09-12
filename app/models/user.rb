@@ -1,4 +1,5 @@
 class User < ApplicationRecord
-  validates :name, :email, :password, presence: true
+  belongs_to :team
+  validates :name, :email, :password, :team, presence: true
   validates :email, uniqueness: true
 end

@@ -1,17 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Team do
-  before do
-    @team = build(:team)
+  describe 'validations' do
+    it { should validate_presence_of(:name) }
   end
 
-  it 'is not valid without a name' do
-    @team.name = nil
-    @team.valid?
-    expect(@team.errors.full_messages).to eq(['Name can\'t be blank'])
+  describe 'associations' do
+    it { should have_many(:groups) }
   end
 
   it 'is valid with valid attributes' do
-    expect(@team).to be_valid
+    team = build(:team)
+    expect(team).to be_valid
   end
 end
